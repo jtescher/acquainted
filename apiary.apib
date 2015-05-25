@@ -1,0 +1,97 @@
+FORMAT: 1A
+HOST: https://api.getacquainted.com/v1
+
+# Acquainted API V1
+
+The Acquainted API allows users to manage their acquainted connections.
+
+## Group User
+
+Resources related to users in the API.
+
+## User [/users/{userId}]
+
+A User object has the following attributes:
+
++ firstName
++ lastName
++ facebookUserId
+
++ Parameters
+    + userId: 1 (required, number) - ID of the User in form of an integer.
+
+### View User details [GET]
+
++ Response 200 (application/json)
+
+        {
+            "user": {
+                "id": 1,
+                "firstName": "John",
+                "lastName": "Doe",
+                "facebookUserId": "100000"
+            }
+        }
+        
+### Update User details [PUT]
+
++ Request (application/json)
+
+        {
+            "user": {
+                "id": 1,
+                "firstName": "John",
+                "lastName": "Doe",
+                "facebookUserId": "100000"
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /users/1
+
+    + Body
+
+            {
+                "user": {
+                    "id": 1,
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "facebookUserId": "100000"
+                }
+            }
+
+## Users [/users]
+
+### Create a new User [POST]
+
+This action allows you to sign up or add a connected user.
+
++ Request (application/json)
+
+        {
+            "user": {
+                "firstName": "John",
+                "lastName": "Doe",
+                "facebookUserId": "100000"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /users/1
+
+    + Body
+
+            {
+                "user": {
+                    "id": 1,
+                    "firstName": "John",
+                    "lastName": "Doe",
+                    "facebookUserId": "100000"
+                }
+            }
