@@ -15,5 +15,6 @@ defmodule Acquainted.Router do
   scope "/v1", Acquainted do
     pipe_through :api
 
+    resources "users", UserController, only: [:create, :show, :update]
   end
 end

@@ -42,6 +42,18 @@ defmodule Acquainted.Web do
     end
   end
 
+  def view do
+    quote do
+      use Phoenix.View, root: "web/templates"
+
+      # Import convenience functions from controllers
+      import Phoenix.Controller, only: [view_module: 1]
+
+      # Import URL helpers from the router
+      import Acquainted.Router.Helpers
+    end
+  end
+
   def channel do
     quote do
       use Phoenix.Channel
