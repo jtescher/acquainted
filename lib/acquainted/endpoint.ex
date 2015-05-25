@@ -10,7 +10,7 @@ defmodule Acquainted.Endpoint do
   plug Plug.Logger
 
   plug Plug.Parsers,
-    parsers: [:json],
+    parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
     json_decoder: Poison
 
