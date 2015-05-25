@@ -18,8 +18,9 @@ defmodule Acquainted.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Acquainted do
-  #   pipe_through :api
-  # end
+  scope "/v1", Acquainted do
+    pipe_through :api
+
+    get "/health-check", HealthCheckController, :index
+  end
 end
