@@ -1,26 +1,19 @@
 defmodule Acquainted.Router do
   use Acquainted.Web, :router
 
-  pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-  end
-
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", Acquainted do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :api
 
-    get "/", PageController, :index
+    get "/", HealthCheckController, :index
+    get "/health-check", HealthCheckController, :index
   end
 
   scope "/v1", Acquainted do
     pipe_through :api
 
-    get "/health-check", HealthCheckController, :index
   end
 end

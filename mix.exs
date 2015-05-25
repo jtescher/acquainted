@@ -3,7 +3,7 @@ defmodule Acquainted.Mixfile do
 
   def project do
     [app: :acquainted,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
@@ -17,8 +17,7 @@ defmodule Acquainted.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Acquainted, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+     applications: [:phoenix, :cowboy, :logger, :phoenix_ecto, :postgrex]]
   end
 
   # Specifies which paths to compile per environment
@@ -32,8 +31,6 @@ defmodule Acquainted.Mixfile do
     [{:phoenix, "~> 0.13.1"},
      {:phoenix_ecto, "~> 0.4"},
      {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 1.0"},
-     {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
 end

@@ -11,17 +11,7 @@ config :acquainted, Acquainted.Endpoint,
   debug_errors: true,
   code_reloader: true,
   cache_static_lookup: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
-
-# Watch static and templates for browser reloading.
-config :acquainted, Acquainted.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
-      ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
-    ]
-  ]
+  watchers: []
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
